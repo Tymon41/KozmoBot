@@ -28,7 +28,6 @@ const chalk = require('chalk');
 
 const client = new Discord.Client();
 
-const launch2 = require("./SLN.json");
 const config = require("./config.json");
 
 //On s'assure d'attacher le fichier config au CLIENT, ainsi il est accessible de n'importe où !
