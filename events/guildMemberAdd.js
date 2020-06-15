@@ -13,7 +13,7 @@ module.exports = async (client, member) => {
   // Envoie un message en mentionnant le membre
   let avatar = member.avatarURL;
 
-  console.log(chalk.greenBright("+ "), `${user.username} a rejoint le serveur`);
+  console.log(chalk.greenBright("+"), `${user.username} a rejoint le serveur`);
 
   var embed = new Discord.MessageEmbed()
   .setTitle(`:tada:__**Bienvenue à toi, ${user.username} !!**__:tada:`)

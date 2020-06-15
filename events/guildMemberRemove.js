@@ -6,7 +6,7 @@ module.exports = (client, member) => {
 
   const user = member.user;
 
-  console.log(chalk.red("- "), `${user.username} a quitté le serveur !`)
+  console.log(chalk.red("-"), `${user.username} a quitté le serveur !`)
 
   const embed = new Discord.MessageEmbed()
     .setTitle(":outbox_tray:Départ d'un membre")

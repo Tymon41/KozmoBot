@@ -20,7 +20,7 @@ module.exports = (client) => {
 	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); //Nombre aleat entre 1 et le nombre d'activitées
 	client.user.setActivity(activities_list[index],{type: "WATCHING"});					//Afficher l'activité et le type d'activité (REGARDE)
 }, 8000);																																			//Delai de 5 secondes avant la boucle
-	client.channels.cache.get(`608277359279210501`).send(":electric_plug: Bot en ligne via `"+ machine +"`, version `"+ client.config.version +"` !\nMise en route provisoire !")//Log dans le channel log
+	client.channels.cache.get(`608277359279210501`).send(":electric_plug: Bot en ligne via `"+ machine +"`, version `"+ client.config.version +"` !")//Log dans le channel log
 
 
   // Charge les invites dans le cache
