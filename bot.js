@@ -86,7 +86,7 @@ con.connect(function(err) {
   {
     return console.log(chalk.bgRed("ERREUR BDD: "), err);
   }
-  console.log(chalk.bgGreen("BDD: "), "Connecté à la BDD !");
+  console.log(chalk.bgGreen("BDD:"), "Connecté à la BDD !");
 });
 
 client.login(config.token);
