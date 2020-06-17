@@ -92,6 +92,12 @@ con.connect(function(err) {
 client.login(config.token);
 
 
+
+setInterval(function () {
+    con.query('SELECT 1');
+}, 3600000);//Technique de chacal pour garder la connexion à la BDD active en envoyant une requete par heure
+
+
 //Permet d'éviter le crash en cas d'exception non relevée
 process.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
 
