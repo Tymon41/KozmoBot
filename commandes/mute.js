@@ -3,13 +3,17 @@ const Discord = module.require('discord.js');
 exports.run = (client, message, args) => {
   // Presque comme le !!kick, mais pas ouf
   // Si: membre a le role @Helper ou modo
-  if(!message.member.roles.has(`445244061557981184`))
+  if(!message.member.permissions.has('KICK_MEMBERS'))
+  {
     return message.reply("Vous n'avez pas les permissions d'utiliser cette commande!");	//Répondre par une négation
+  }
 
   let member = message.mentions.members.first(); //Récup le pseudo de la personne mentionnée
   let userVar = message.author;									 //Récup le pseudo de l'auteur de la commande
   if(!member)																		 //Si aucun membre n'a été mentionné
+  {
     return message.reply("Veuillez mentionner un utilisateur valide !");//Mec, faut mentionner un membre...
+  }
 
     if(member.roles.has(`506232828577710090`))
     return message.reply('impossible de mute un membre du staff >.<')

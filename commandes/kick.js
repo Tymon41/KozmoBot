@@ -46,7 +46,7 @@ exports.run = (client, message, args) => {
               message.reply(`${user.tag} a bien été kick`);
               client.channels.cache.get(`608277308700229653`).send(`:x: ${user} a été kick par ${userVar}`);
 
-              var sql = `INSERT INTO kick (uid, tag, moderateur) VALUES ('${user.id}', '${user.tag}', '${message.author.tag}')`;
+              var sql = `INSERT INTO kicks (uid, tag, moderateur) VALUES ('${user.id}', '${user.tag}', '${message.author.tag}')`;
               client.con.query(sql, function (err, result) {
               if (err)
               {

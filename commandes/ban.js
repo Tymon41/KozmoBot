@@ -61,7 +61,7 @@ exports.run = (client, message, args) => {
     var gifler = Math.floor(Math.random() * gifs.length); //fact random
     message.channel.send(gifs[gifler]);
     client.channels.cache.get("608277308700229653").send(`:no_entry: **${member}** a été banni de Kozmos par ${userVar.tag} pour la raison suivante: ${reason}`);
-    var sql = `INSERT INTO ban (uid, tag, moderateur, raison) VALUES ('${member.user.id}', '${member.user.tag}', '${message.author.tag}', '${reason}')`;
+    var sql = `INSERT INTO bans (uid, tag, moderateur, raison) VALUES ('${member.user.id}', '${member.user.tag}', '${message.author.tag}', '${reason}')`;
     client.con.query(sql, function (err, result) {
     if (err)
     {

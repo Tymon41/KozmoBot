@@ -68,7 +68,7 @@ module.exports = (client, message) => {
   // Grab the command data from the client.commands Enmap
   const cmd = client.commands.get(command);
 
-  // If that command doesn't exist, silently exit and do nothing
+  // Si cette commande n'existe pas, sortir de la boucle avec un message indiquant une erreur
   if (!cmd) return message.reply("Désolé, cette commande n'existe pas !\nPour avoir la liste des commandes disponibles, tapez k/help");
 
   // Run the command

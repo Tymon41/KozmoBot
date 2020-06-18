@@ -4,9 +4,9 @@ exports.run = async (client, message, args) => {
 
   let ping = `${Math.round(client.ws.ping)}`;
 
-if (ping <= 50) {
+  if (ping <= 50) {
     pingend = ("**DIVIN**")
-}   else if (ping <= 50 && ping < 100) {
+  } else if (ping <= 50 && ping < 100) {
     pingend = ("**Excellent**");
   } else if (ping >= 100 && ping < 200) {
     pingend = ("**Très bon**");
@@ -22,7 +22,10 @@ if (ping <= 50) {
     pingend = ("**Catastrophique**");
   } else if (ping >= 5000 && ping < 10000) {
     pingend = ("**Extreme**")
+  } else if (ping >= 10000) {
+    pingend = ("**Je démissionne...**")
   }
+
 
 
   const m = await message.channel.send("Ping?");

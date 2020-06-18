@@ -1,7 +1,8 @@
 exports.run = (client, message, args) => {
-  if(!message.member.roles.has(`506232828577710090`))	{
+  if(!message.member.permissions.has('KICK_MEMBERS'))
+  {
     return message.reply("Vous n'avez pas les permissions d'utiliser cette commande!");	//Répondre par une négation
-    }
+  }
     let member = message.mentions.members.first();  //Récupère le membre mentionné
     let userVar = message.author;                   //Récupère l'auteur
 
