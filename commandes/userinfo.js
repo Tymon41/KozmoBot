@@ -43,7 +43,7 @@ exports.run = (client, message, args) => {
     .addField("A rejoint le serveur le:", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
     .addField("Compte créé le:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
     .addField("Roles:", member.roles.cache.map(roles => `${roles}`).join(', '), true)
-    .setFooter(`En réponse à ${message.author.username}#${message.author.discriminator}`)
+    .setFooter(`En réponse à ${message.author.tag}`)
     .setTimestamp();
 message.channel.send({embed});
 }
