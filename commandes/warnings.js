@@ -35,6 +35,9 @@ exports.run = (client, message, args) => {
     return message.reply("Erreur BDD (vérifier la console)");
   }
   else {
+    if (!result) {
+      return message.reply(`${mentioned.tag} n'a aucun warn`);
+    }
     message.reply(` affichage des warns de ${mentioned.tag}:\n ${result}`);
   }
 

@@ -1,4 +1,8 @@
-module.exports = (client, message) => {
+const Discord = module.require('discord.js');
+const chalk = module.require('chalk');
+const mysql = module.require('mysql');
+
+module.exports = async (client, message) => {
 
   if (message.guild === null) {return};
   //Ignore les messages qui ne proviennent pas du serveur
@@ -19,6 +23,17 @@ module.exports = (client, message) => {
 
 
 //ANTI INSULTES▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+  var warnEmbed = new Discord.MessageEmbed() // Embed de warn
+    .setColor('#ff0011')
+    .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
+    .setTitle('Avertissement')
+    .addField('Raison', 'Usage de mots interdits')
+    .addField('Message visé', `*${msg}*`)
+    .setFooter(`Si vous pensez qu'il s'agit d'une erreur, veuillez contacter un membre du staff avec votre id d'avertissement afin qu'il retire l'avertissement`)
+    .setTimestamp();
+
+    //liste de mots interdits
   const swearWords = ["connard", "conard", "conasse", "connasse", "卐", "卍", "couillon", "sperm", "sperme", "encule", "enculé", "enculer", "suceur", "suceuse", "sal fdp", "sale fdp", "salle fdp", "ntm", "nique ta mère", "nique ta mere", "nique ta mer", "nik ta mère", "nik ta mere", "nik ta mer", "pd ", "pédé", "salope", "saloppe", "salop", "salaud", "fdp", "pute ", "fils de pute", "fils de put", "negre", "nègre", "négre", "negro", "négro", "nègro", "nique ta race", "nik ta race", "suce ma queue", "sale chien", " bite ", "petasse", "petase", "pétasse", "pétase", "suce boule", "suces boule", "gros con", "grosse con", "grose con"];																											//Contenu du message
 
   if( swearWords.some(word => msg.toLowerCase().includes(word)) ) {	//Si présence des mots de la liste "swearwords"
@@ -26,6 +41,18 @@ module.exports = (client, message) => {
 			message.delete();																													//Sinon, supprimer le message
 			client.channels.cache.get(`608277308700229653`).send(`:no_entry_sign: ${auteur} a dit un mot interdit: \`${msg}\` le \`[ ${new Date()} ]\` `);//log le message
 			message.reply(`Hé, merci de ne pas dire ça :angry:`);											//Mettre un message d'avertissement
+      message.member.send(warnEmbed);
+
+      //Ajout d'un avertissement
+      var sql = `INSERT INTO warns (uid, tag, moderateur, raison) VALUES ('${message.member.id}', '${message.member.tag}', 'Kozmos#0019', 'insulte postée: ${msg}')`;
+      client.con.query(sql, function (err, result) {
+      if (err)
+      {
+        console.log(chalk.bgRed('ERREUR BDD: '), err);
+        return client.channels.cache.get(`608277359279210501`).send("Erreur lors de l'accès à la BDD (vérifier la console)");
+      }
+      console.log(chalk.bgRed('BDD: '), "Nouvel avertissement ajouté à la BDD");
+    });
 		};    //fin Anti-insultes
 
 
