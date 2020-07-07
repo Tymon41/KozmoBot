@@ -29,12 +29,18 @@ exports.run = (client, message, args) => {
     let reason = args.slice(1).join(' ') // .slice(1) removes the user mention, .join(' ') joins all the words in the message, instead of just sending 1 word
     if(!reason) return message.channel.send(missingArgsEmbed); // S'active si la raison n'est pas spécifiée
 
+    const generateRandomString = function(length=10){
+			return Math.random().toString(36).substr(2, length)
+		}
+
     var warningEmbed = new Discord.MessageEmbed() // Créé l'embed utilisé pour DM le membre qui s'est fait warn
         .setColor(embedColor)
         .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
         .setTitle(`Vous avez reçu un avertissement sur ${message.guild.name}`)
         .addField('Par', message.author.tag)
         .addField('Raison', reason)
+        .addField('ID', `**${generateRandomString()}**`)
+        .setFooter(`Si vous pensez qu'il s'agit d'une erreur, veuillez contacter un membre du staff avec l'ID de cet avertissement`)
         .setTimestamp();
 
     mentioned.send(warningEmbed); // DM le membre concerné
@@ -45,6 +51,7 @@ exports.run = (client, message, args) => {
         .addField('Par', message.author.tag)
         .addField('À', mentioned.tag)
         .addField('Raison', reason)
+        .addField(`ID`, generateRandomString())
         .setTimestamp();
 
     message.channel.send(warnSuccessfulEmbed); // Envoie l'embed

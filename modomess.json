@@ -1,7 +1,5 @@
 {
-  "insultes": ,
-  "liensnul": ,
-  "lienbien": ,
-  "liens": ,
+  "insultes": [],
+
   "autorep": ["it's a small step for man but a giant leap for mankind", "Hey salut, ca va ?", "Creeper ?", "Coucou", "The cake is a lie", "Kozmos, what else ?", "La terre est plate", ":musical_note:Kozmos sait faire un bon café, Kozmos sait faire un bon café:musical_note:", "https://cdn.discordapp.com/attachments/535174980363878431/613062258582355971/NOTRE_PROJET.gif", "Pain de mie, les croutes c'est fini !", "Vous aussi vous pouvez proposer des phrases aléatoires, il suffit de remplir ce formulaire: https://forms.gle/bEzgJ2dxqjvXUGwy8 !", "commence par me parler poliment", "Oui", "sors avec moi <3", "||:ok_hand: Gotcha !||", "OMG STOP PING PLS", "Hey comment vas tu ?", "Veux tu sortir avec moi ?", "Alors déjà, non", "Kestadit ?", "Et alors", "Wsh tu veux quoi, t'veux te battre ? Chuis un ouf moi !", "Je t'aime", "Moi aussi", "Oui en effet", "alèd", "Comment ça ?", "Non pas du tout", "Je t'ai déjà dit que j'étais un bot ?", "Salut !", "Au revoir", "Demain peut être", "Je te quitte", "Nous ~~ne~~ sommes ~~pas~~ platistes", "Un jour, j'incarnerais l'énergie du christ cosmique, si Tymon s'en sort mieux pour me dev (me tape pas Tymon, c'est juste que je ne peut pas mentir vu que mes réponses sont aléatoires)", "https://tenor.com/view/flick-esfand-esfandtv-ricardo-milos-ricardo-flick-gif-13730968", "la Terre est plate et ronde et non sphérique", "parfois je me demande pourquoi je suis là", ":musical_note:Et je chante en ASMR:musical_note:", "Pourquoi tant de ~~haine~~ ping ?", "Parfois, je m'amuse à bugger exprès pour rendre fou Tymon","SPAAAAAAAAAAAAAAACE" , "chhh, pas trop fort, les reptiliens vont t'entendre", "**Le saviez vous:** \n Je suis actuellement en version " +client.config.version+ "", "Creeper, Aw man"]
 }

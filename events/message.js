@@ -24,35 +24,24 @@ module.exports = async (client, message) => {
 
 //ANTI INSULTES▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 
-  var warnEmbed = new Discord.MessageEmbed() // Embed de warn
-    .setColor('#ff0011')
-    .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
-    .setTitle('Avertissement')
-    .addField('Raison', 'Usage de mots interdits')
-    .addField('Message visé', `*${msg}*`)
-    .setFooter(`Si vous pensez qu'il s'agit d'une erreur, veuillez contacter un membre du staff avec votre id d'avertissement afin qu'il retire l'avertissement`)
-    .setTimestamp();
-
     //liste de mots interdits
   const swearWords = ["connard", "conard", "conasse", "connasse", "卐", "卍", "couillon", "sperm", "sperme", "encule", "enculé", "enculer", "suceur", "suceuse", "sal fdp", "sale fdp", "salle fdp", "ntm", "nique ta mère", "nique ta mere", "nique ta mer", "nik ta mère", "nik ta mere", "nik ta mer", "pd ", "pédé", "salope", "saloppe", "salop", "salaud", "fdp", "pute ", "fils de pute", "fils de put", "negre", "nègre", "négre", "negro", "négro", "nègro", "nique ta race", "nik ta race", "suce ma queue", "sale chien", " bite ", "petasse", "petase", "pétasse", "pétase", "suce boule", "suces boule", "gros con", "grosse con", "grose con"];																											//Contenu du message
 
   if( swearWords.some(word => msg.toLowerCase().includes(word)) ) {	//Si présence des mots de la liste "swearwords"
 		if (message.member.roles.cache.has(`445244065944961024`) || message.member.roles.cache.has(`506232828577710090`)) {return};//Si membre a le rôle staff ou bot, annuler
-			message.delete();																													//Sinon, supprimer le message
-			client.channels.cache.get(`608277308700229653`).send(`:no_entry_sign: ${auteur} a dit un mot interdit: \`${msg}\` le \`[ ${new Date()} ]\` `);//log le message
-			message.reply(`Hé, merci de ne pas dire ça :angry:`);											//Mettre un message d'avertissement
-      message.member.send(warnEmbed);
 
-      //Ajout d'un avertissement
-      var sql = `INSERT INTO warns (uid, tag, moderateur, raison) VALUES ('${message.member.id}', '${message.member.tag}', 'Kozmos#0019', 'insulte postée: ${msg}')`;
-      client.con.query(sql, function (err, result) {
-      if (err)
-      {
-        console.log(chalk.bgRed('ERREUR BDD: '), err);
-        return client.channels.cache.get(`608277359279210501`).send("Erreur lors de l'accès à la BDD (vérifier la console)");
-      }
-      console.log(chalk.bgRed('BDD: '), "Nouvel avertissement ajouté à la BDD");
-    });
+      const insultEmbed = new Discord.MessageEmbed()
+        .setTitle("Mot interdit utilisé")
+        .setDescription("Quelqu'un a posté un message INTERDIT")
+        .setColor("e60000")
+        .addField("Pseudo:", message.author)
+        .addField(`message:`, `[message ici](${message.url})`)
+        .setFooter(`Kozmobot - ${client.config.version}`)
+        .setTimestamp();
+
+        client.channels.cache.get(`608277308700229653`).send(insultEmbed);//log le message										//Mettre un message d'avertissement
+
+
 		};    //fin Anti-insultes
 
 
@@ -78,8 +67,9 @@ module.exports = async (client, message) => {
 		};
 //ANTI LIENS FIN
 */
-  if (message.mentions.has(client.users.cache.get('483265733854494721')))
+  if (message.mentions.has(client.user))
   { //Si personne mentionnée
+    if(message.content.includes("@everyone") || message.content.includes("@here"))
 		var facts = ["it's a small step for man but a giant leap for mankind", "Hey salut, ca va ?", "Creeper ?", "Coucou", "The cake is a lie", "Kozmos, what else ?", "La terre est plate", ":musical_note:Kozmos sait faire un bon café, Kozmos sait faire un bon café:musical_note:", "https://cdn.discordapp.com/attachments/535174980363878431/613062258582355971/NOTRE_PROJET.gif", "Pain de mie, les croutes c'est fini !", "commence par me parler poliment", "Oui", "sors avec moi <3", "||:ok_hand: Gotcha !||", "OMG STOP PING PLS", "Hey comment vas tu ?", "Veux tu sortir avec moi ?", "Alors déjà, non", "Kestadit ?", "Et alors", "Je t'aime", "Moi aussi", "Oui en effet", "alèd", "Comment ça ?", "Non pas du tout", "Je t'ai déjà dit que j'étais un bot ?", "Salut !", "Au revoir", "Demain peut être", "Je te quitte", "Nous ~~ne~~ sommes ~~pas~~ platistes", "https://tenor.com/view/flick-esfand-esfandtv-ricardo-milos-ricardo-flick-gif-13730968", "la Terre est plate et ronde et non sphérique", "parfois je me demande pourquoi je suis là", ":musical_note:Et je chante en ASMR:musical_note:", "Pourquoi tant de ~~haine~~ ping ?", "SPAAAAAAAAAAAAAAACE", "Creeper, Aw man"]; //Variable facts
 		var fact = Math.floor(Math.random() * facts.length); //fact random
 		message.reply(facts[fact]); //poster la fact

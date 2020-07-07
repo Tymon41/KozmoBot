@@ -4,10 +4,12 @@ const chalk = module.require('chalk');
 
 module.exports = (client, member) => {
 
+  //Déclaration de variable,: user = un ancien membre du serveur
   const user = member.user;
 
   console.log(chalk.red("-"), `${user.username} a quitté le serveur !`)
 
+//Déclaration de l'embed et de ses paramètres
   const embed = new Discord.MessageEmbed()
     .setTitle(":outbox_tray:Départ d'un membre")
     .setDescription("Quelqu'un a quitté le serveur !")
@@ -20,5 +22,5 @@ module.exports = (client, member) => {
     .setFooter(`Kozmobot - ${client.config.version}`)
     .setTimestamp();
 
-  client.channels.cache.get('608277255126515712').send({embed});//De toute façon, c'était un ######
+  client.channels.cache.get('608277255126515712').send({embed});//Envoi de l'embed
 }
