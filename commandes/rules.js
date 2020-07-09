@@ -61,7 +61,7 @@ exports.run = async (client, message, args) => {
   await message.channel.send({embed});
 
   embed = new Discord.MessageEmbed()
-    .setDescription("Au bout de 10 avertissements sur le serveur, vous serez bannis du serveur **définitivement**\n\n**Tout ban est DÉFINITIF, sans possibilité de revenir !\nLe @Staff se réserve le droit de vous kick/ban si votre comportement est jugé comme inacceptable même si les raisons ne figurent pas dans les règles\nRejoindre et quitter ce serveur à répétition résultera en un ban définitif et non négociable**\n__Dans le cas d'une sanction automatique effectué par un bot, celle ci pourra être révoquée après examen si elle est considéré comme non justifié, par exemple suite à un bug du bot ou à une mauvaise interprétation de celui ci, nous sommes conscients que ceux ci ne sont pas parfait, des erreurs sont donc possibles__")
+    .setDescription("Au bout de 10 avertissements sur le serveur, vous serez bannis du serveur **définitivement**\n\n**Tout ban est DÉFINITIF, donc sans possibilité de revenir !\nLe @Staff se réserve le droit de vous kick/ban si votre comportement est jugé comme inacceptable même si les raisons ne figurent pas dans les règles\nRejoindre et quitter ce serveur à répétition résultera en un ban définitif et non négociable**\n__Dans le cas d'une sanction automatique effectué par un bot, celle ci pourra être révoquée après examen si elle est considéré comme non justifié, par exemple suite à un bug du bot ou à une mauvaise interprétation de celui ci, nous sommes conscients que ceux ci ne sont pas parfait, des erreurs sont donc possibles__")
     .setColor("490b00")
     .setFooter("Sanctions éditées le 29/02/2020")
     .setTimestamp();

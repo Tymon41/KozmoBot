@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
   .addField(`:label: Nom`, "Kozmobot")
   .addField(`:pencil2: Créateurs`,`**${client.config.createur}**`)
   .addField(`:scroll: Language utilisé`, `JavaScript`)
-  .addField(`:books: API utilisées`, `Discord.js v12.1.1,\nmoment V2.24.0,\nenmap V5.2.4,\nmysql V2.18.1,\nchalk V4.0.0`, true)
+  .addField(`:books: Dépendances`, `Discord.js v12.2.0,\nmoment V2.27.0,\nenmap V5.3.1,\nmysql V2.18.1,\nchalk V4.1.0`, true)
   .addField(`:gear: Version`, client.config.version, true)
   .addField(":speech_balloon: Préfixe", client.config.prefix, true)
   .addField(`:beginner: Permissions`, `**Administrateur**`, true)

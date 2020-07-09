@@ -17,5 +17,4 @@ exports.run = (client, message, args) => {
   message.reply(`La commande **${commandName}** a bien été rechargée ! :thumbsup:`);
 
   client.channels.cache.get(`608277359279210501`).send(`:arrows_counterclockwise: La commande **${commandName}** a été rechargée par ${message.author.tag} le ${new Date()}`)
-
 };

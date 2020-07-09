@@ -18,8 +18,8 @@ exports.run = (client, message, args) => {
     .addField("k/broadcast **niveau (1 à 4)** **message**", "Envoie un message dans le salon annonce avec plus ou moins d'importance selon le niveau")
     .addField("k/userinfo **@Membre**", "Donne les principales infos à propos du membre mentionné")
     .addField("k/restart", "Permet de redémarrer le bot en cas de problème, à n'utiliser qu'en cas de nécéssité !")
-    .addField("k/clean", "Permet de supprimer des messages")
-    .addField("k/prune", "Ejecte les membres inactifs")
+    .addField("k/clean **nombre**", "Permet de supprimer un nombre donné de messages (100 si aucun nombre fourni)")
+    .addField("k/prune **jours**", "Ejecte les membres inactifs depuis X jours")
     .setFooter(`Kozmobot - ${client.config.version}`)
     .setTimestamp();
 
