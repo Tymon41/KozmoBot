@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 
   let amount = args.slice(0).join(" ");
 
-  if (!message.member.permissions.has(`KICK_MEMBERS`)) {
+  if (!message.member.permissions.has(`MANAGE_MESSAGES`)) {
     return message.reply("désolé mais vous n'avez pas les permissions pour utiliser cette commande");
   }
 

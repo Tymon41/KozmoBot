@@ -71,7 +71,9 @@ exports.run = (client, message, args) => {
       message.reply("cet utilisateur n'existe pas");
       }
     // Otherwise, if no user was mentioned
-  } else {
+  }
+  else
+  {
     message.reply("vous devez mentionner un membre >.< !");
   }
 }

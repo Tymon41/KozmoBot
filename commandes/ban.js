@@ -9,25 +9,25 @@ exports.run = (client, message, args) => {
   var embedColor = '#ff0011' // Couleur des embeds!
 
   var missingPermissionsEmbed = new Discord.MessageEmbed() // Créé un embed indiquant à l'auteur qu'il manque de perms
-  .setColor(embedColor)
-  .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
-  .setTitle('Permissions insuffisantes !')
-  .setDescription('Vous avez besoin de la permission `BAN_MEMBERS` pour utiliser cette commande !')
-  .setTimestamp();
+    .setColor(embedColor)
+    .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
+    .setTitle('Permissions insuffisantes !')
+    .setDescription('Vous avez besoin de la permission `BAN_MEMBERS` pour utiliser cette commande !')
+    .setTimestamp();
 
   var missingArgsEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande est incorrecte ou incomplète
-  .setColor(embedColor)
-  .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
-  .setTitle('Arguments manquants')
-  .setDescription('Usage: `ban [**@member**] [*Raison*]')
-  .setTimestamp();
+    .setColor(embedColor)
+    .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
+    .setTitle('Arguments manquants')
+    .setDescription('Usage: `ban [**@member**] [*Raison*]')
+    .setTimestamp();
 
   var cantBanEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande est incorrecte ou incomplète
-  .setColor(embedColor)
-  .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
-  .setTitle('Erreur')
-  .setDescription("Imposible de bannir cet utilisateur, rôle trop important/permissions insuffisantes")
-  .setTimestamp();
+    .setColor(embedColor)
+    .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
+    .setTitle('Erreur')
+    .setDescription("Imposible de bannir cet utilisateur, rôle trop important/permissions insuffisantes")
+    .setTimestamp();
 
 
   // Si: membre a le role @Staff
@@ -47,12 +47,12 @@ exports.run = (client, message, args) => {
 
 
   var bannedEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande est incorrecte ou incomplète
-  .setColor(embedColor)
-  .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
-  .setTitle('Membre banni')
-  .setDescription(`Le BanHammer de ${userVar.username} s'est violement abattu sur ${user.username}`)
-  .addField("Raison:", `${reason}`)
-  .setTimestamp();
+    .setColor(embedColor)
+    .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
+    .setTitle('Membre banni')
+    .setDescription(`Le BanHammer de ${userVar.username} s'est violement abattu sur ${user.username}`)
+    .addField("Raison:", `${reason}`)
+    .setTimestamp();
 
 
   member.ban(reason)														//Allez hop, ça dégage
