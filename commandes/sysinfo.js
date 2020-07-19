@@ -11,13 +11,13 @@ exports.run = (client, message, args) => {
   let cpuspeed = (cpucores[0].speed / 1000);
 
   let architecture = os.arch();
-  let freemem = os.freemem();
-  let memMB = freemem / 1000000;
+  let freemem = os.freemem() / 1000000;
   let totalmem = os.totalmem() / 1000000;
   let osVersion = os.release();
   let platform = os.platform();
   let osType = os.type();
 
+//Calcul uptime
   let uptime = os.uptime();
   let totalSeconds = (uptime);
   let jours = Math.floor(totalSeconds / 86400);
@@ -39,7 +39,7 @@ exports.run = (client, message, args) => {
     .addField("Fréquence", `${cpuspeed}GHz`)
     .addField(":bricks: Architecture CPU", architecture)
     .addField(":dvd: Mémoire totale", `${Math.round(totalmem)} MB`,true)
-    .addField(":cd: Mémoire libre", `${Math.round(memMB)} MB`, true)
+    .addField(":cd: Mémoire libre", `${Math.round(freemem)} MB`, true)
     .addField(":pager: OS", osType)
     .addField(":up: Version du système", osVersion, true)
     .addField(":watch: Uptime machine", uptimend)

@@ -21,14 +21,14 @@ exports.run = async (client, message, args) => {
   } else if (ping >= 1000 && ping < 5000) {
     pingend = ("**Catastrophique**");
   } else if (ping >= 5000 && ping < 10000) {
-    pingend = ("**Extreme**")
+    pingend = ("**Extreme**");
   } else if (ping >= 10000) {
-    pingend = ("**Je démissionne...**")
+    pingend = ("**Je démissionne...**");
   }
 
 
 
-  const m = await message.channel.send("Ping?");
+  const m = await message.channel.send("Test ping en cours...");
   m.edit(`Pong! :ping_pong: La latence du bot est de **${m.createdTimestamp - message.createdTimestamp}** ms. Latence de l'API de **${ping}** ms (État: ${pingend} )`);
 
 }

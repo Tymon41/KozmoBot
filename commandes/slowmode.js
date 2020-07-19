@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   if (!delay) {
     delay = 0;
   }
-  //Delai supérieur à la limite imposée (21600 secondes soit 6h)
+  //Delai supérieur à la limite imposée (21600 secondes soit 6h) ou inférieur à 0
   else if (delay > 21600 || delay < 0) {
     return message.channel.send(`ERREUR: Le delai indiqué doit être compris entre 0 et 21600 secondes >_<`)
   }

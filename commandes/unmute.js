@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
 
   //Si pas de membres mentionné
   if(!member)
-    return message.reply("Veuillez mentionner un utilisateur valide !")
+    return message.reply("Vous devez mentionner un utilisateur")
 
 
   let muterole = message.guild.roles.cache.get(`452851946731077644`); //Récupération du role de mute
