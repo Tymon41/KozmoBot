@@ -13,6 +13,11 @@ exports.run = async (client, message, args) => {
   else if (delay > 21600 || delay < 0) {
     return message.channel.send(`ERREUR: Le delai indiqué doit être compris entre 0 et 21600 secondes >_<`)
   }
+  const staffChannels = [`461102423671308298`, `444228541022863370`, `584754575098118159`];
+  if(staffChannels.includes(message.channel.id))
+  {
+    return message.reply("Impossible d'activer le slowmode sur un salon réservé au staff !");
+  }
 
   message.channel.edit({ rateLimitPerUser: delay })
   .then(console.log(`Le slowmode dans le salon ${message.channel.name} a été défini à ${delay} secondes par ${message.author.tag}`))

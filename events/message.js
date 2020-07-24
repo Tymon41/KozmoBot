@@ -31,15 +31,15 @@ module.exports = async (client, message) => {
 		if (message.member.roles.cache.has(`445244065944961024`) || message.member.roles.cache.has(`506232828577710090`)) {return};//Si membre a le rôle staff ou bot, annuler
 
       const insultEmbed = new Discord.MessageEmbed()
-        .setTitle("Mot interdit utilisé")
-        .setDescription("Quelqu'un a posté un message contenant une potentielle insulte ou un mot interdit")
-        .setColor("e60000")
-        .addField("Pseudo:", message.author)
-        .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
-        .setFooter(`Si il s'agit d'une erreur, aucune action n'est requise | Kozmobot - ${client.config.version}`)
-        .setTimestamp();
+      .setTitle("Mot interdit utilisé")
+      .setDescription("Quelqu'un a posté un message contenant une potentielle insulte ou un mot interdit")
+      .setColor("e60000")
+      .addField("Pseudo:", message.author)
+      .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
+      .setFooter(`Si il s'agit d'une erreur, aucune action n'est requise | Kozmobot - ${client.config.version}`)
+      .setTimestamp();
 
-        client.channels.cache.get(`608277308700229653`).send(insultEmbed);//log le message										//Mettre un message d'avertissement
+      client.channels.cache.get(`608277308700229653`).send(insultEmbed);//log le message										//Mettre un message d'avertissement
 
 
 		};    //fin Anti-insultes

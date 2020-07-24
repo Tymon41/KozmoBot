@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const publicIp = require("public-ip");
 
-exports.run(client, message) => {
+exports.run = (client, message) => {
   if (message.author.id != '328455894515974144') {
     return;
   }

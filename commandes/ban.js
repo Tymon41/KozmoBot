@@ -46,7 +46,7 @@ exports.run = (client, message, args) => {
   if(!reason) reason = `Pas de raisons données`;
 
 
-  var bannedEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande est incorrecte ou incomplète
+  var bannedEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande s'est bien executée
     .setColor(embedColor)
     .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
     .setTitle('Membre banni')
@@ -55,10 +55,10 @@ exports.run = (client, message, args) => {
     .setTimestamp();
 
 
-  member.ban(reason)														//Allez hop, ça dégage
-  .catch(error => message.reply(`Désolé ${message.author}, une erreur est survenue: ${error}`));	//Fuck, ça marche pas
+  member.ban(reason)
+  .catch(error => message.reply(`Désolé ${message.author}, une erreur est survenue: ${error}`));
   message.channel.send(bannedEmbed);
-  var gifler = Math.floor(Math.random() * gifs.length); //fact random
+  var gifler = Math.floor(Math.random() * gifs.length);
   message.channel.send(gifs[gifler]);
   client.channels.cache.get("608277308700229653").send(`:no_entry: **${member}** a été banni de Kozmos par ${userVar.tag} pour la raison suivante: ${reason}`);
   var sql = `INSERT INTO bans (uid, tag, moderateur, raison) VALUES ('${member.user.id}', '${member.user.tag}', '${message.author.tag}', '${reason}')`;

@@ -20,16 +20,16 @@ exports.run = async (client, message, args) => {
 
   embed = new Discord.MessageEmbed()
   .setColor("490b00")
-  .addField(":arrow_right:Il est interdit d'insulter ou manquer de respect envers n'importe quel membre du serveur", "En même temps vous vous y attendiez non ?")
+  .addField(":arrow_right:Il est interdit d'insulter ou de manquer de respect envers n'importe quel membre du serveur", "En même temps vous vous y attendiez non ?")
   .addField(":arrow_right:Le Doxing est strictement interdit", "Le doxing, c'est rechercher et diffuser des infos personnelles sur une personne dans le but de lui nuire, ce qui est illégal")
   .addField(":arrow_right:Les conversations un peu trop personnelles ou sans intérêt pour les autres membres ou le serveur sont à faire en message privé","On ne vous interdit pas de discuter, juste gardez les conversations privées en privé :wink:")
   .addField(":arrow_right:Pas de contenu à caractère religieux ou politique", "Sauf dans le salon débat mais dans le calme et la bienveillance")
-  .addField(":arrow_right:Les discours incitants au nazisme où incitans à nuire à n'importe quelle communautés sont interdits", "Le ban sera immédiat et votre compte sera signalé à l'équipe de Discord")
+  .addField(":arrow_right:Les propos racistes, homophobes, xénophobes ou n'importe quels propos haineux sont formellement interdits", "Le ban sera immédiat et votre compte sera signalé à l'équipe de Discord pour incitation à la haine")
   .addField(":arrow_right:Pas de pub sans autorisation (sauf sur le salon #🆙pub à partir du niveau 5)", "(Site, serveur Discord, chaine YouTube, ect...)")
   .addField(":arrow_right:Pas de messages en MAJUSCULES ni de messages en zalgo", "AVOUEZ QUE C'EST a̛͕̙͔̣̳̗̣̜͍̓́̾̊͛̓͟s̤̜̺̪̠̪͕̈́̋͑̏̄͋͝͝s̴̡̛̘͎͇͙̱̀̏͗͐͌̉̂̚͜e̢̞̣̫̾̀̍͘̚͝ͅz̴̛̘̱̗̭͇̲͒̅̒͗͐͟ͅ c̨̯͓͕̩̯̖̗̰͒̒̏̂̔͜ȟ̢̢̨͙̟̤̖̰͕͖͊͋̌͋̊̎͞͞͞į̶̧̣̬̞̲̔̎͛̌̾̈̕ą̷̪̺̣̗̗̭̏̌͆͋͒͐͘͘͢͠ň̨̘̘̻͍̬̙̥̟͈̔̒̏͗̀͗͡t̙̝̰̺̣͚͔͑̋̒͆̽̍̚͞͡")
   .addField(":arrow_right:Évitez d'abuser des emojis", "En abusant des emotes (plus de 5 par msg sans raisons) vous rendez la lecture plus difficile")
   .addField(":arrow_right:Pas de lien vers des sites internet douteux (Jumpscare, pornographie...)", "Les liens sont autorisés, quand ils sont postés dans le bon salon et qu'ils respectent ces règles")
-  .addField(":arrow_right:Pas de spam (commande et messages)", "Le spam est interdit et sera puni de ban définitif")
+  .addField(":arrow_right:Pas de spam (commande et messages)", "Le spam est interdit >et sera puni de ban définitif")
   .addField(":arrow_right:Merci de respecter le sujet de chaque salon", "Vous pouvez discuter où vous voulez, mais si la discution sors 'trop longtemps' du sujet du salon, il est recommandé de changer pour aider à la clarté des discussions");
 
   await message.channel.send({embed});
@@ -39,7 +39,7 @@ exports.run = async (client, message, args) => {
     .addField(":arrow_right:Merci d'éviter d'abuser des réactions sous les messages (surtout quand ce n'est pas nécessaire)", "Toujours pour aider à la clarté des discussions")
     .addField(":arrow_right:Avoir un 2ème compte sur le serveur est toléré","Si vous nous avertissez bien sûr, si une infraction est constatée sur votre premier compte, votre second compte sera également sanctionné")
     .addField(":arrow_right:Toutes mentions (@Staff ou membres) sans raisons et spam de mention sont interdits", "Ceci résultera en un **ban définitif et non négociable**")
-    .addField(":arrow_right:Les pseudos portant sur des sujets 'sensibles' sont à proscrire", "Ceci s'applique aussi aux avatars")
+    .addField(":arrow_right:Les pseudos portant sur des sujets 'sensibles' sont à proscrire", "Cela s'applique aussi aux avatars")
     .addField(":arrow_right:Les commandes sont à faire dans le salon #🤖commands-bots dans la mesure du possible", "Cela évite de polluer les salons de discussions")
     .addField("---------------------------------------------------------------------------------------", "**En gros, soyez respectueux entre vous et soyez cool, les règles ne sont pas là pour vous embêter, elle sont là pour nous aider à gérer le serveur, merci de faire un effort et de les lire SVP**")
     .setFooter("Règles écrites le 20/07/2020")
@@ -55,14 +55,14 @@ exports.run = async (client, message, args) => {
   .setColor("490b00")
   .setThumbnail("https://cdn.discordapp.com/attachments/549327587009363998/682393512729116763/streamline-icon-legal-hammer48x48.png")
   .addField(":arrow_right:Warn du membre concerné", "Il s'agit d'une mise en garde")
-  .addField(":arrow_right:Mute pouvant durer entre 1h et 3 jours (voire plus si récidive)", "----------------------")
+  .addField(":arrow_right:Mute pouvant durer entre 1h et 3 jours", "Voire plus si récidive")
   .addField(":arrow_right:Kick du membre", "Vous serez éjectés du serveur")
   .addField(":arrow_right:Ban définitif du membre", "Vous serez ban IP à vie");
 
   await message.channel.send({embed});
 
   embed = new Discord.MessageEmbed()
-    .setDescription("Au bout de 10 avertissements sur le serveur, vous serez bannis du serveur **définitivement**\n\n**Tout ban est DÉFINITIF, donc sans possibilité de revenir !\nLe @Staff se réserve le droit de vous kick/ban si votre comportement est jugé comme inacceptable même si les raisons ne figurent pas dans les règles\nRejoindre et quitter ce serveur à répétition résultera en un ban définitif et non négociable**\n__Dans le cas d'une sanction automatique effectué par un bot, celle ci pourra être révoquée après examen si elle est considéré comme non justifié, par exemple suite à un bug du bot ou à une mauvaise interprétation de celui ci, nous sommes conscients que ceux ci ne sont pas parfait, des erreurs sont donc possibles__")
+    .setDescription("Au bout de 10 avertissements sur le serveur, vous serez bannis du serveur **définitivement**\n\n**Tout ban est DÉFINITIF, donc sans possibilité de revenir !\nLe @Staff se réserve le droit de vous sanctionner si votre comportement est jugé comme inacceptable même si les raisons ne figurent pas dans les règles\nRejoindre et quitter ce serveur à répétition résultera en un ban définitif et non négociable**\n\n__Dans le cas d'une sanction automatique effectué par un bot, celle ci pourra être révoquée après examen si elle est considéré comme non justifié, par exemple suite à un bug du bot ou à une mauvaise interprétation de celui ci, nous sommes conscients que ceux ci ne sont pas parfait, des erreurs sont donc possibles. Si cela vous arrive, n'hésitez pas à envoyer un message à un membre du staff__")
     .setColor("490b00")
     .setFooter("Sanctions éditées le 20/07/2020")
     .setTimestamp();
