@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
   }
   //Delai supérieur à la limite imposée (21600 secondes soit 6h) ou inférieur à 0
   else if (delay > 21600 || delay < 0) {
-    return message.channel.send(`ERREUR: Le delai indiqué doit être compris entre 0 et 21600 secondes >_<`)
+    return message.channel.send(`ERREUR: Le delai indiqué doit être compris entre 0 et 21600 secondes >_<`);
   }
   const staffChannels = [`461102423671308298`, `444228541022863370`, `584754575098118159`];
   if(staffChannels.includes(message.channel.id))
@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
     return message.reply("Impossible d'activer le slowmode sur un salon réservé au staff !");
   }
 
-  message.channel.edit({ rateLimitPerUser: delay })
+  message.channel.edit({ rateLimitPerUser: delay });
   .then(console.log(`Le slowmode dans le salon ${message.channel.name} a été défini à ${delay} secondes par ${message.author.tag}`))
   .catch(console.error);
   //Delai supérieur ou égal à 1 minute
@@ -39,7 +39,7 @@ exports.run = async (client, message, args) => {
   	let minutes = Math.floor(delay / 60);
   	let seconds = delay % 60;
   	let delayhour = `${hours} heures, ${minutes} minutes et ${seconds} secondes`;
-  	message.channel.send(`Le mode lent a été défini à ${delayhour}`)
+  	message.channel.send(`Le mode lent a été défini à ${delayhour}`);
   }
   //Delai nul (=0)
   else {

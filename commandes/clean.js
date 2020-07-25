@@ -8,7 +8,8 @@ exports.run = (client, message, args) => {
     return message.reply("désolé mais vous n'avez pas les permissions pour utiliser cette commande");
   }
 
-  if (!amount) {
+  if (!amount)
+  {
     amout = "100";
   }
 

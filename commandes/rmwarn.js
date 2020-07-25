@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
   {
     return message.channel.send("Vous n'avez pas les permissions requises pour executer cette commande !"); // Checks if the user has the permission
   }
-  
+
   //Stockage de l'id envoyé
   let id = args.slice(0).join(' ');
 
@@ -28,6 +28,7 @@ exports.run = async (client, message, args) => {
 		}
     console.log(chalk.bgRed('BDD: '), "Avertissement retiré de la BDD");
     message.reply("l'avertissement a bien été supprimé !");
+    client.channels.cache.get("608277308700229653").send(`Le warn contenant l'id ${id} a été supprimé`);
   });//Fin sql
 
 }
