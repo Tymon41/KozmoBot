@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
     .addField(`:gear: Version`, client.config.version, true)
     .addField(":speech_balloon: Préfixe", client.config.prefix, true)
     .addField(`:beginner: Permissions`, `**Administrateur**`, true)
-    .setFooter(`Kozmobot - ${client.config.version}`)
+    .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
     .setTimestamp();
   message.channel.send({embed});
 

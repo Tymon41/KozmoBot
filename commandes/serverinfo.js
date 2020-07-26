@@ -69,7 +69,7 @@ exports.run = (client, message, args) => {
     .addField(":date: Date de création", `${moment.utc(cDate).format("dddd, MMMM Do YYYY")}`)
     .addField(":gift: Nombre de boosts", message.guild.premiumSubscriptionCount)
     .addField(":military_medal: Tier du boost", booster, true)
-    .setFooter("Kozmobot - " +client.config.version)
+    .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
     .setTimestamp();
   message.channel.send({embed});
 

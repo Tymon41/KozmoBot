@@ -53,7 +53,7 @@ exports.run = (client, message, args) => {
   .addField(":desktop: Machine utilisée", machine, true)
   .addField(":floppy_disk: Mémoire utilisée", `${ramUsage} MB: ${ramStatut}`)
   .addField(":control_knobs: Utilisation du CPU", `${(process.cpuUsage().user / 1000000).toFixed(2)} Secondes`, true)
-  .setFooter(`Kozmobot - ${client.config.version}`)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
   .setTimestamp();
   message.channel.send({embed});
 

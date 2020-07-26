@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
     .addField("Modérateur", modo)
     .addField("Guides", guides)
     .addField("Animateur", anima)
-    .setFooter("Kozmobot - " +client.config.version+ " | Les recrutements sont ouverts")
+    .setFooter(`Kozmobot - ${client.config.version} - By Tymon | Les recrutements sont ouverts`)
     .setTimestamp();
   message.channel.send({embed});
 }

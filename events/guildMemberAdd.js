@@ -53,7 +53,7 @@ module.exports = async (client, member) => {
       //.addField("Invitation créé par:", inviter.tag)
       //.addField("Invitation utilisée:", `${invite.uses} fois`)
       .addField("Compte créé le:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`)
-      .setFooter(`Kozmobot - ${client.config.version}`)
+      .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
       .setTimestamp();
       client.channels.cache.get('608277255126515712').send({embed});
     //});//Fin members.guild.fetchInvites()

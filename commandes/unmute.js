@@ -21,6 +21,16 @@ exports.run = (client, message, args) => {
 
   //Messages de confirmation et log
   message.reply(`${member.user.tag} a été unmute par ${message.author.tag}`);
-  client.channels.get(`608277308700229653`).send(`:loud_sound: ${member} a été unmute par ${userVar}`);
+
+  const unmuteEmbed = new Discord.MessageEmbed()
+  .setTitle(`:loud_sound: Unmuted`)
+  .setDescription(`${userVar} a rendu la parole à ${member}`)
+  .setColor("1e7f05")
+  .addField(`:date: Date`, `\`${new Date()}\``)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
+  .setTimestamp();
+
+
+  client.channels.get(`608277308700229653`).send(unmuteEmbed);
   console.log(`${member.user.tag} unmute par ${message.author.tag}`);
 }

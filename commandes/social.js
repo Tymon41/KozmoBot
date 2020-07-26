@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
   .addField("Facebook", "https://www.facebook.com/kozmosofficiel/")
   .addField("Twitter", "https://twitter.com/Kozmobserv")
   .addField("Discord", "https://discordapp.com/invite/VYYnge7")
-  .setFooter(`Kozmobot - ${client.config.version}`)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
   .setTimestamp();
 
   message.channel.send(socialEmbed);

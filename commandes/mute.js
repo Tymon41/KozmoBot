@@ -26,7 +26,15 @@ exports.run = (client, message, args) => {
 
   message.reply(`${member.user.tag} a été mute par ${message.author.tag}`);//TA GUEULE
 
+  const muteEmbed = new Discord.MessageEmbed()
+  .setTitle(`:mute: Muted`)
+  .setDescription(`${member} a été rendu muet par ${userVar}`)
+  .setColor("1e7f05")
+  .addField(`Raison`, reason)
+  .addField(`:date: Date`, `\`${new Date()}\``)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
+  .setTimestamp();
 
-  client.channels.cache.get(`608277308700229653`).send(`:mute: ${member} a été mute par ${userVar} pour la raison suivante: ${reason}`);
+  client.channels.cache.get(`608277308700229653`).send(muteEmbed);
   console.log(`${member.user.tag} mute par ${message.author.tag}`);//Et on log ça comme souvenir
 }

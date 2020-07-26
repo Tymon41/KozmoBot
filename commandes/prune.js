@@ -15,7 +15,14 @@ exports.run = (client, message, args) => {
     message.reply("veuillez indiquer une durée !\nUsage: k/prune **jours d'inactivité**")
   }
 
+  const pruneEmbed = new Discord.MessageEmbed()
+  .setTitle(":wastebasket: Purge effectuée")
+  .setDescription(`${guild.pruned} ont été ejectées par ${message.author.tag} pour une inactivité supérieure à ${durée} jours`)
+  .addField(":date: Date", `\`${new Date()}\``)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
+  .setTimestamp();
+
   message.channel.send(`${guild.pruned} personnes ont été éjectées pour inactivité supérieure à ${duree} !`);
-  client.channels.cache.get(`608277400890900490`).send(`:wastebasket: ${message.author.tag} a ejecté ${guild.pruned} personnes inactives depuis ${durée} jours, le \`${new Date()}\``);
+  client.channels.cache.get(`608277400890900490`).send(pruneEmbed);
   console.log(`${message.author.username} a éjecté ${guild.pruned} personnes inactives depuis ${durée} jours`);
 }

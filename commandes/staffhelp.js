@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
     .addField("k/restart", "Permet de redémarrer le bot en cas de problème, à n'utiliser qu'en cas de nécéssité !")
     .addField("k/clean **nombre**", "Permet de supprimer un nombre donné de messages (100 si aucun nombre fourni)")
     .addField("k/prune **jours**", "Ejecte les membres inactifs depuis X jours")
-    .setFooter(`Kozmobot - ${client.config.version}`)
+    .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
     .setTimestamp();
 
   message.reply({embed});

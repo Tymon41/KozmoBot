@@ -19,7 +19,7 @@ module.exports = (client, member) => {
     .addField("Tag:", user.tag)
     .addField("ID:", `${user.id}`)
     .addField("A quitté le serveur le:", `${moment.utc(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
-    .setFooter(`Kozmobot - ${client.config.version}`)
+    .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
     .setTimestamp();
 
   client.channels.cache.get('608277255126515712').send({embed});//Envoi de l'embed

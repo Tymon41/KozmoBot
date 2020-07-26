@@ -43,7 +43,7 @@ exports.run = (client, message, args) => {
     .addField(":pager: OS", osType)
     .addField(":up: Version du système", osVersion, true)
     .addField(":watch: Uptime machine", uptimend)
-    .setFooter(`Kozmobot - ${client.config.version}`)
+    .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
     .setTimestamp();
 
   message.channel.send({embed});

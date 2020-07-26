@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
 		}
     console.log(chalk.bgRed('BDD: '), "Avertissement retiré de la BDD");
     message.reply("l'avertissement a bien été supprimé !");
-    client.channels.cache.get("608277308700229653").send(`Le warn contenant l'id ${id} a été supprimé`);
+    client.channels.cache.get("608277308700229653").send(`Le warn contenant l'id **${id}** a été supprimé`);
   });//Fin sql
 
 }

@@ -57,6 +57,15 @@ exports.run = (client, message, args) => {
 
   message.channel.send(warnSuccessfulEmbed); // Envoie l'embed
 
+  const warnLogEmbed = new Discord.MessageEmbed()
+  .setTitle(`:bangbang: Warn`)
+  .setDescription(`${mentioned.tag} a été warn par ${message.author.tag}`)
+  .setColor("1e7f05")
+  .addField(`Raison`, reason)
+  .addField(`:date: Date`, `\`${new Date()}\``)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
+  .setTimestamp();
+
   client.channels.cache.get("608277308700229653").send(`:bangbang: **${mentioned.tag}** a reçu un avertissement de la par de ${message.author.tag} pour la raison suivante: ${reason}`);
 
   var sql = `INSERT INTO warns (uid, tag, moderateur, raison, wid) VALUES ('${mentioned.id}', '${mentioned.tag}', '${message.author.tag}', '${reason}', '${keyer}')`;
