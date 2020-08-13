@@ -5,7 +5,7 @@ const chalk = module.require('chalk');
 exports.run = (client, message, args) => {
 
 
-  var embedColor = '#ff0011' // Couleur des embeds!
+  var embedColor = '#ff0011' // Couleur des embeds
 
   var missingPermissionsEmbed = new Discord.MessageEmbed() // Créé un embed indiquant à l'auteur qu'il manque de perms
     .setColor(embedColor)
@@ -66,7 +66,7 @@ exports.run = (client, message, args) => {
   .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
   .setTimestamp();
 
-  client.channels.cache.get("608277308700229653").send(`:bangbang: **${mentioned.tag}** a reçu un avertissement de la par de ${message.author.tag} pour la raison suivante: ${reason}`);
+  client.channels.cache.get("608277308700229653").send(`:bangbang: **${mentioned.tag}** a reçu un avertissement de la part de ${message.author.tag} pour la raison suivante: ${reason}`);
 
   var sql = `INSERT INTO warns (uid, tag, moderateur, raison, wid) VALUES ('${mentioned.id}', '${mentioned.tag}', '${message.author.tag}', '${reason}', '${keyer}')`;
   client.con.query(sql, function (err, result) {

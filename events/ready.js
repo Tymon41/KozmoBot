@@ -6,10 +6,10 @@ module.exports = (client) => {
 
 
   const activities_list = [																		//Liste des activitées à afficher
-  	"UwU",
-  	"Kozmos",
-  	"les étoiles",
-  	"https://kozmobserv.com",
+  	`UwU`,
+  	`Kozmos`,
+  	`les étoiles`,
+  	`https://kozmobserv.com`,
     `l'ISS`,
     `le ciel`
   ];

@@ -29,6 +29,10 @@ exports.run = (client, message, args) => {
     case "VERY_HIGH":
      secu = "Maximale";
      break;
+
+    default:
+      secu = "Inconnue";
+      break;
   }
 
   let booster;

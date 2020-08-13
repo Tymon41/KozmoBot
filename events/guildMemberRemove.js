@@ -17,7 +17,7 @@ module.exports = (client, member) => {
     .setThumbnail("https://cdn.discordapp.com/attachments/535174980363878431/616040124593209364/streamline-icon-logout-248x48.png")
     .addField("Pseudo dynamique:", user)
     .addField("Tag:", user.tag)
-    .addField("ID:", `${user.id}`)
+    .addField("ID:", user.id)
     .addField("A quitté le serveur le:", `${moment.utc(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
     .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
     .setTimestamp();

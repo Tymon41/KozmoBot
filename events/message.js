@@ -28,27 +28,31 @@ module.exports = async (client, message) => {
   const swearWords = ["connard", "conard", "conasse", "connasse", "卐", "卍", "couillon", "encule", "enculé", "enculer", "suceur", "suceuse", "sal fdp", "sale fdp", "sale fdp", "nique ta mère", "nique ta mere", "nique ta mer", "nik ta mère", "nik ta mere", "nik ta mer", "pd ", "pédé", "salope", "saloppe", "salop", "salaud", "fdp", "pute ", "fils de pute", "fils de put", "negre", "nègre", "négre", "negro", "négro", "nègro", "nique ta race", "nik ta race", "suce ma queue", "sale chien", " bite ", "petasse", "petase", "pétasse", "suce boule", "gros con"];																											//Contenu du message
 
   if( swearWords.some(word => msg.toLowerCase().includes(word)) ) {	//Si présence des mots de la liste "swearwords"
-		if (message.member.roles.cache.has(`445244065944961024`) || message.member.roles.cache.has(`506232828577710090`)) {return};//Si membre a le rôle staff ou bot, annuler
+		if (message.member.roles.cache.has(`445244065944961024`) || message.member.roles.cache.has(`506232828577710090`))
+    {
+      return
+    };//Si membre a le rôle staff ou bot, annuler
 
-      const insultEmbed = new Discord.MessageEmbed()
-      .setTitle("Mot interdit utilisé")
-      .setDescription("Quelqu'un a posté un message contenant une potentielle insulte ou un mot interdit")
-      .setColor("e60000")
-      .addField("Pseudo:", message.author)
-      .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
-      .setFooter(`Si il s'agit d'une erreur, aucune action n'est requise | Kozmobot - ${client.config.version}`)
-      .setTimestamp();
+    message.react("⚠️");
 
-      client.channels.cache.get(`608277308700229653`).send(insultEmbed);//log le message										//Mettre un message d'avertissement
+    const insultEmbed = new Discord.MessageEmbed()
+    .setTitle("Mot interdit utilisé")
+    .setDescription("Quelqu'un a posté un message contenant une potentielle insulte ou un mot interdit")
+    .setColor("ff5d5d")
+    .addField("Pseudo:", message.author)
+    .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
+    .setFooter(`Si il s'agit d'une erreur, aucune action n'est requise | Kozmobot - ${client.config.version}`)
+    .setTimestamp();
 
+    client.channels.cache.get(`608277308700229653`).send(`@here ${insultEmbed}`);//log le message										//Mettre un message d'avertissement
 
 		};    //fin Anti-insultes
 
 
     //Liens interdits▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓DÉSACTIVÉ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-/*ANTI LIENS DEBUT
+//ANTI LIENS DEBUT
   const liensnul = ["https://", "http://"];
-  const lienbien = ["science", "youtube", "espace", "astro", "telescope", "télescope", "optique", "wikipedia", "wikiwand", "astronomie", "galaxie", "futura", "terre", "fusée", "navette", "spatial", "nasa", "twitter", "https://discord.gg/VYYnge7", "kozmobserv.com", "tenor.com", "giphy.com", "https://www.youtube.com/channel/UC0Ox77dApdB8uiNO9VdvHgA", "twitter.com/Kozmobserv", "www.facebook.com/kozmosofficiel/"];
+  const lienbien = ["science", "youtube", "espace", "astro", "wiki", "telescope", "télescope", "optique", "wikipedia", "wikiwand", "astronomie", "galaxie", "futura", "terre", "fusée", "navette", "spatial", "nasa", "twitter", "https://discord.gg/VYYnge7", "kozmobserv.com", "tenor.com", "giphy.com", "https://www.youtube.com/channel/UC0Ox77dApdB8uiNO9VdvHgA", "twitter.com/Kozmobserv", "www.facebook.com/kozmosofficiel/"];
 	const channelbien = [`538075577165414410`, `475340937988538368`, `447423998121345044`, `441524529282678784`, `469054667259904000`, `578656958438047754`, `588114674562760704`, `468886205124050945`, `460845874428379156`, `441322246309543960`, `444236804158128128`, `447426731259985920`, `467756141036961795`, `466321298394578984`, `545300815078752277`, `521716220928458773`, `475340937988538368`, `453559079563034645`];
 
   if( liensnul.some(word => msg.toLowerCase().includes(word)) )
@@ -58,15 +62,26 @@ module.exports = async (client, message) => {
 			if(!channelbien.includes(message.channel.id))
       {//Si il est publié dans un autre salon que #pub, #vidéo, #Series, #memes, #debat, #lives, #vos créations, #astronomie, #command-bot, #théories du complot, #jeux, #ksp, #SE, #MC, #nsfw, présentation
 					if (message.member.roles.cache.has(`445244065944961024`) || message.member.roles.cache.has(`506232828577710090`))
-          {return};//Si membre a le rôle staff ou bot, annuler
-						message.delete();																													//Sinon, supprimer le message
-						client.channels.cache.get(`608277308700229653`).send(`:warning: ${auteur} a posté un lien interdit: \`${msg}\` le \`[ ${new Date()} ]\` `);//log le message
-						message.reply("Hé, merci de ne pas poster de liens ici ! :angry:");										//Mettre un message d'avertissement
+          {
+            return
+          };//Si membre a le rôle staff ou bot, annuler
+
+          message.react("⚠️");
+
+          const pubEmbed = new Discord.MessageEmbed()
+          .setTitle("Lien utilisé")
+          .setDescription("Quelqu'un a posté un message contenant un lien non référencé ou inconnu")
+          .setColor("5d0000")
+          .addField("Pseudo:", message.author)
+          .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
+          .setFooter(`Si le lien est sans risque, aucune action n'est requise | Kozmobot - ${client.config.version}`)
+          .setTimestamp();
+          client.channels.cache.get(`608277308700229653`).send(`@here ${pubEmbed}`);//log le message
 				}
 			}	//Fin anti lien
 		};
 //ANTI LIENS FIN
-*/
+
   if (message.mentions.has(client.user))
   { //Si personne mentionnée
     if(message.content.includes("@everyone") || message.content.includes("@here")) {return}
