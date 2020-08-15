@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
     .setColor(embedColor)
     .setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
     .setTitle('Arguments manquants')
-    .setDescription('Usage: `ban [**@member**] [*Raison*]')
+    .setDescription('Usage: `ban [**@membre**] [*Raison*]')
     .setTimestamp();
 
   var cantBanEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande est incorrecte ou incomplète

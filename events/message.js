@@ -101,7 +101,7 @@ module.exports = async (client, message) => {
   const cmd = client.commands.get(command);
 
   // Si cette commande n'existe pas, sortir de la boucle avec un message indiquant une erreur
-  if (!cmd) return message.reply("Désolé, cette commande n'existe pas !\nPour avoir la liste des commandes disponibles, tapez k/help");
+  if (!cmd) return message.reply("désolé, cette commande n'existe pas ou la syntaxe est invalide. Pour une liste des commandes disponibles, tapez k/help");
 
   // Run the command
   cmd.run(client, message, args);

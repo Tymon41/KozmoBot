@@ -8,7 +8,7 @@ module.exports = async (client, member) => {
   const user = member.user;
 
   if (user.bot)
-  return client.channels.cache.get('608277255126515712').send(`Le bot ${user.tag} a rejoint le serveur !`);
+    return client.channels.cache.get('608277255126515712').send(`Le bot ${user.tag} a rejoint le serveur !`);
 
   // Envoie un message en mentionnant le membre
   let avatar = member.avatarURL;
@@ -24,21 +24,22 @@ module.exports = async (client, member) => {
   .setTimestamp();
   client.channels.cache.get(`444230241502756894`).send({embed});
 
-  member.send(`:tada: Bienvenue sur Kozmos, ${member} :tada:
+  member.send(`:tada: Bienvenue à toi sur Kozmos, ${member} :tada:
     N'hésite pas à te présenter si tu le souhaite !
     Pense également à lire les règles !
-    Et si tu as la moindre question, surtout n'hésite pas :wink: !`);
+    Le staff est à ta disposition pour répondre à tes questions !`);
+
     try {
       // Pour comparer, on charge la liste des invitations
-      member.guild.fetchInvites().then(invites => {
+      //member.guild.fetchInvites().then(invites => {
       // C'est la liste des invitations *existantes*
-      const ei = client.invites[member.guild.id];
+      //const ei = client.invites[member.guild.id];
       // MAJ des invites sur le serv
-      client.invites[member.guild.id] = invites;
+      //client.invites[member.guild.id] = invites;
       // Regarder celle qui a augmenté de 1
-      const invite = invites.cache.find(i => ei.cache.get(i.code).uses < i.uses);
+      //const invite = invites.cache.find(i => ei.cache.get(i.code).uses < i.uses);
       // This is just to simplify the message being sent below (inviter doesn't have a tag property)
-      const inviter = client.users.cache.get(invite.inviter.id);
+      //const inviter = client.users.cache.get(invite.inviter.id);
       // A real basic message with the information we need.
       var embed = new Discord.MessageEmbed()
       .setTitle(`:inbox_tray: Nouveau membre`)
@@ -49,17 +50,17 @@ module.exports = async (client, member) => {
       .addField(`Pseudo dynamique:`, member)
       .addField(`Pseudo + tag:`, user.tag)
       .addField(`ID:`, `${user.id}`)
-      .addField("invitation utilisée:", `[${invite.code}](${invite.url})`)
-      .addField("Invitation créé par:", inviter.tag)
-      .addField("Invitation utilisée:", `${invite.uses} fois`)
+      //.addField("invitation utilisée:", `[${invite.code}](${invite.url})`)
+      //.addField("Invitation créé par:", inviter.tag)
+      //.addField("Invitation utilisée:", `${invite.uses} fois`)
       .addField("Compte créé le:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`)
       .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
       .setTimestamp();
       client.channels.cache.get('608277255126515712').send({embed});
-    });//Fin members.guild.fetchInvites()
+    //});//Fin members.guild.fetchInvites()
   }
   catch (e)
   {
-    console.log(e)
+    console.log(e);
   }
 }
