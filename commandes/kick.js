@@ -5,8 +5,6 @@ const mysql = module.require('mysql');
 exports.run = (client, message, args) => {
 
 
-  let userVar = message.author.username
-
   var embedColor = '#ff0011' // Couleur des embeds!
 
   var missingPermissionsEmbed = new Discord.MessageEmbed() // Créé un embed indiquant à l'auteur qu'il manque de perms
@@ -70,5 +68,4 @@ exports.run = (client, message, args) => {
     console.log("Nouveau kick ajouté à la BDD");
   });
   console.log(chalk.redBright("MOD: "), `${member.user.tag} kick par ${message.author.tag}`);//Et on log ça comme souvenir
-  }
 }

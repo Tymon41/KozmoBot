@@ -18,8 +18,8 @@ exports.run = async (client, message, args) => {
   {
     return message.reply("Impossible d'activer le slowmode sur un salon réservé au staff !");
   }
-
-  message.channel.edit({ rateLimitPerUser: delay });
+ 
+  message.channel.edit({ rateLimitPerUser: delay })
   .then(console.log(`Le slowmode dans le salon ${message.channel.name} a été défini à ${delay} secondes par ${message.author.tag}`))
   .catch(console.error);
   //Delai supérieur ou égal à 1 minute
