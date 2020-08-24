@@ -37,7 +37,7 @@ client.config = config;
 const invites = {};
 client.invites = invites
 
-// Crééer un délai sans bloquer le script
+// Créer un délai sans bloquer le script
 const wait = require('util').promisify(setTimeout);
 
 //Connexion mysql
@@ -95,7 +95,7 @@ client.login(config.token);
 
 setInterval(function () {
     con.query('SELECT 1');
-}, 3600000);//Technique de chacal pour garder la connexion à la BDD active en envoyant une requete par heure
+}, 3600000);//Technique de chacal pour garder la connexion à la BDD active en envoyant une requete par heure&
 
 
 //Permet d'éviter le crash en cas d'exception non relevée

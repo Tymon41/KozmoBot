@@ -4,8 +4,8 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "discord-anti-spam": "^1.1.6",
-    "discord.js": "^12.3.0",
-    "enmap": "^5.6.1",
+    "discord.js": "^12.3.1",
+    "enmap": "^5.7.0",
     "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "public-ip": "^4.0.2"

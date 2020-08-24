@@ -24,12 +24,12 @@ module.exports = async (client, member) => {
   .setTimestamp();
   client.channels.cache.get(`444230241502756894`).send({embed});
 
-  member.send(`:tada: Bienvenue à toi sur Kozmos, ${member} :tada:
-    N'hésite pas à te présenter si tu le souhaite !
-    Pense également à lire les règles !
-    Le staff est à ta disposition pour répondre à tes questions !`);
+	member.send(`:tada: Bienvenue à toi sur Kozmos, ${member} :tada:
+		N'hésite pas à te présenter si tu le souhaite !
+		Pense également à lire les règles !
+		Le staff est à ta disposition pour répondre à tes questions !`);
 
-    try {
+		try {
       // Pour comparer, on charge la liste des invitations
       //member.guild.fetchInvites().then(invites => {
       // C'est la liste des invitations *existantes*
