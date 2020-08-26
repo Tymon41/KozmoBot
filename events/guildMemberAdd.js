@@ -1,6 +1,25 @@
 const moment = module.require('moment');
 const Discord = module.require('discord.js');
 const chalk = module.require('chalk');
+const Canvas = module.require('canvas');
+
+
+const applyText = (canvas, text) => {
+const ctx = canvas.getContext('2d');
+
+// Declare a base size of the font
+let fontSize = 70;
+
+do {
+	// Assign the font to the context and decrement it so it can be measured again
+	ctx.font = `bold ${fontSize -= 10}px Oswald`;
+	// Compare pixel width of the text to the canvas minus the approximate avatar size
+} while (ctx.measureText(text).width > canvas.width - 400);
+
+// Return the result to use in the actual canvas
+return ctx.font;
+};
+
 
 module.exports = async (client, member) => {
   const userVar = member.username;
@@ -11,18 +30,49 @@ module.exports = async (client, member) => {
     return client.channels.cache.get('608277255126515712').send(`Le bot ${user.tag} a rejoint le serveur !`);
 
   // Envoie un message en mentionnant le membre
-  let avatar = member.avatarURL;
 
   console.log(chalk.greenBright("+"), `${user.username} a rejoint le serveur`);
 
-  var embed = new Discord.MessageEmbed()
-  .setTitle(`:tada:__**Bienvenue à toi, ${user.username} !!**__:tada:`)
-  .setDescription(`**Bienvenue à toi sur Kozmos, **${member}** !**\n Pense à lire les règles et, si tu le désires, à te présenter dans le salon présentation`)
-  .setThumbnail(user.avatarURL())
-  .setColor(`7ed321`)
-  .setFooter(`Kozmobot - ${client.config.version}`)
-  .setTimestamp();
-  client.channels.cache.get(`444230241502756894`).send({embed});
+
+//Message d'invitation personnalisé
+const canvas = Canvas.createCanvas(700, 250);
+	const ctx = canvas.getContext('2d');
+
+	const background = await Canvas.loadImage('./wallpaper.jpg');
+	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+	ctx.shadowColor = 'black';
+	ctx.shadowBlur = 10;
+	ctx.shadowOffsetX = 0;
+	ctx.shadowOffsetY = 7;
+
+	// Slightly smaller text placed above the member's display name
+
+	ctx.font = 'bold 28px Oswald';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText('Bienvenue sur Kozmos,', canvas.width / 2.5, canvas.height / 3.5);
+
+	// Add an exclamation point here and below
+	ctx.font = applyText(canvas, `${member.displayName} !`);
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText(`${member.displayName} !`, canvas.width / 2.5, canvas.height / 1.8);
+
+	ctx.font = '20px Oswald';
+	ctx.fillStyle = '#ffffff';
+	ctx.fillText('Pense à lire les règles et, si tu le désires,\n à te présenter dans le salon présentation !', canvas.width / 2.5, canvas.height / 1.4);
+
+
+	ctx.beginPath();
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	ctx.closePath();
+	ctx.clip();
+
+	const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'png' }));
+	ctx.drawImage(avatar, 25, 25, 200, 200);
+
+	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
+
+	client.channels.cache.get('444230241502756894').send(`Bienvenue, ${member}!`, attachment);//Envoi de l'image
 
 	member.send(`:tada: Bienvenue à toi sur Kozmos, ${member} :tada:
 		N'hésite pas à te présenter si tu le souhaite !

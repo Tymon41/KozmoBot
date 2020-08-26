@@ -25,6 +25,7 @@ const Enmap = require("enmap");
 const fs = require("fs");
 const mysql = require('mysql');
 const chalk = require('chalk');
+const convas = require('canvas');
 
 const client = new Discord.Client();
 
