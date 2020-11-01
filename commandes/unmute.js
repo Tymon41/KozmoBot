@@ -1,3 +1,5 @@
+const Discord = module.require("discord.js");
+
 exports.run = (client, message, args) => {
   if(!message.member.permissions.has('KICK_MEMBERS'))
   {

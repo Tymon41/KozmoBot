@@ -19,7 +19,6 @@ exports.run = (client, message, args) => {
   .addField(`ping`, `Affiche le ping du bot`)
   .addField(`say **message**`, `Envoie le message à votre place`)
   .addField(`serverinfo`, `Affiche les infos publiques du serveur`)
-  .addField(`site`, `Affiche le lien vers le site web`)
   .addField(`social`, `Affiche le lien vers nos réseaux sociaux`)
   .addField(`staff`, `Affiche la liste des membres du staff`)
   .addField(`statut`, `Affiche le statut du bot`)

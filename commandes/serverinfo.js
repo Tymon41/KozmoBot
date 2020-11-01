@@ -1,5 +1,5 @@
 const Discord = module.require('discord.js');
-const moment = require('moment');
+const moment = module.require('moment');
 
 exports.run = (client, message, args) => {
 

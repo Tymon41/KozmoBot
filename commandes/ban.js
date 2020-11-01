@@ -60,7 +60,22 @@ exports.run = (client, message, args) => {
 	message.channel.send(bannedEmbed);
 	var gifler = Math.floor(Math.random() * gifs.length);
 	message.channel.send(gifs[gifler]);
-	client.channels.cache.get("608277308700229653").send(`:no_entry: **${member}** a été banni de Kozmos par ${userVar.tag} pour la raison suivante: ${reason}`);
+
+
+	const banLogEmbed = new Discord.MessageEmbed()
+  .setTitle(`:no_entry: Banned !`)
+  .setDescription(`${member.user.tag} a été banni par ${message.author.tag}`)
+  .setColor("1e7f05")
+  .addField(`Raison`, reason)
+  .addField(`:date: Date`, `\`${new Date()}\``)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
+  .setTimestamp();
+
+	client.channels.cache.get("608277308700229653").send(banLogEmbed);
+
+
+
+	//Partie SQL
 	var sql = `INSERT INTO bans (uid, tag, moderateur, raison) VALUES ('${member.user.id}', '${member.user.tag}', '${message.author.tag}', '${reason}')`;
 	client.con.query(sql, function (err, result) {
 		if (err)

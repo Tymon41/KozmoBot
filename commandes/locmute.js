@@ -1,3 +1,6 @@
+const Discord = module.require("discord.js");
+const chalk = module.require("chalk");
+
 exports.run = (client, message, args) => {
 	let auteur = message.author;
 	let mentionned = message.mentions.members.first();
@@ -15,7 +18,7 @@ exports.run = (client, message, args) => {
 	.setColor(embedColor)
 	.setAuthor(message.author.username, message.author.avatarURL({ format: 'png', dynamic: true, size: 128}))
 	.setTitle('Arguments manquants')
-	.setDescription('Usage: `locmute **@membre** *Raison*')
+	.setDescription('Usage: locmute **@membre** *Raison*')
 	.setTimestamp();
 
 	var errorEmbed = new Discord.MessageEmbed() // Créé un embed indiquant que la commande est incorrecte ou incomplète
@@ -54,6 +57,17 @@ exports.run = (client, message, args) => {
 	.catch(console.error);
 
 	message.channel.send(locMuteEmbed);
+
+	const locMuteLogEmbed = new Discord.MessageEmbed()
+  .setTitle(`:mute: Locmuted`)
+  .setDescription(`${member} a été rendu muet par ${userVar} sur le salon ${message.channel.name}`)
+  .setColor("1e7f05")
+  .addField(`Raison`, reason)
+  .addField(`:date: Date`, `\`${new Date()}\``)
+  .setFooter(`Kozmobot - ${client.config.version} - By Tymon`)
+  .setTimestamp();
+
+  client.channels.cache.get(`608277308700229653`).send(locMuteLogEmbed);
 
 	console.log(chalk.redBright("MOD: "), `${mentionned.user.tag} locmute par ${message.author.tag} sur ${message.channel.name}`);//Et on log ça comme souvenir
 	client.channels.cache.get("608277308700229653").send(`:mute: **${mentionned.tag}** a été mute sur le salon ${message.channel.name} par ${auteur.tag} pour la raison suivante: ${reason}`);

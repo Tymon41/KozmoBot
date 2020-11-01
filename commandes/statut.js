@@ -46,7 +46,6 @@ exports.run = (client, message, args) => {
   .attachFiles(["./images/statut.png"])
   .setColor("c51c86")
   .setThumbnail("attachment://statut.png")
-  .setAuthor("Kozmos", "https://kozmobserv.files.wordpress.com/2018/08/logo-kozmos.png")
   .addField(`:repeat: Uptime`, uptimend)
   .addField(":clock1: Ping", `${pingend}`, true)
   .addField(":printer: Infos du ping", pinginfo, true)

@@ -5,17 +5,16 @@ const chalk = require('chalk');
 module.exports = (client) => {
 
 
-  const activities_list = [																		//Liste des activitées à afficher
-  	`UwU`,
-  	`Kozmos`,
-  	`les étoiles`,
-  	`https://kozmobserv.com`,
-    `l'ISS`,
-    `le ciel`
-  ];
-
-  let machine = os.hostname();
-  console.log(chalk.greenBright(`Houston, signal acquis !`), `Version du bot: ${client.config.version}`);	//Log "Houston, signal aquis"
+	const activities_list = [																		//Liste des activitées à afficher
+		`UwU`,
+		`Kozmos`,
+		`les étoiles`,
+		`https://kozmobserv.com`,
+		`l'ISS`,
+		`le ciel`
+	];
+	let machine = os.hostname();
+	console.log(chalk.greenBright(`Houston, signal acquis !`), `Version du bot: ${client.config.version}`);	//Log "Houston, signal aquis"
 	setInterval(() => {																													//Créer une fonction d'intervale
 	const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); //Nombre aleat entre 1 et le nombre d'activitées
 	client.user.setActivity(activities_list[index],{type: `WATCHING`});					//Afficher l'activité et le type d'activité (REGARDE)

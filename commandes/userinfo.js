@@ -35,15 +35,15 @@ exports.run = (client, message, args) => {
     .setImage(user.avatarURL({ format: 'png', dynamic: true}))
     .setColor("ffff00")
     .setThumbnail("attachment://userinfo.png")
-    .addField(`${user.tag}`, `${user}`, true)
-    .addField("ID:", `${user.id}`, true)
-    .addField("Pseudo dynamique:", `${member.nickname !== null ? `${member.nickname}` : 'Aucun'}`, true)
-    .addField("Statut:", `${statut}`, true)
-    .addField("Activité actuelle:", user.presence.activities.toString(), true)
-    .addField("Bot ?", `${botcheck}`, true)
-    .addField("A rejoint le serveur le:", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
-    .addField("Compte créé le:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
-    .addField("Roles:", member.roles.cache.map(roles => `${roles}`).join(', '), true)
+    .addField(`${user.tag}`, `${user}`, true)																																		//Pseudo + tag
+    .addField("ID:", `${user.id}`, true)																																				//ID
+    .addField("Pseudo dynamique:", `${member.nickname !== null ? `${member.nickname}` : 'Aucun'}`, true)				//Pseudo
+    .addField("Statut:", `${statut}`, true)																																			//Statut
+    .addField("Activité actuelle:", user.presence.activities.toString(), true)																	//Activité/présence
+    .addField("Bot ?", `${botcheck}`, true)																																			//Bot ou non
+    .addField("A rejoint le serveur le:", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY")}`, true)	//Date d'arrivée
+    .addField("Compte créé le:", `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true)						//Date création compte
+    .addField("Roles:", member.roles.cache.map(roles => `${roles}`).join(', '), true)														//Liste de ses roles
     .setFooter(`En réponse à ${message.author.tag}`)
     .setTimestamp();
 message.channel.send({embed});

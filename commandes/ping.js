@@ -5,30 +5,30 @@ exports.run = async (client, message, args) => {
   let ping = `${Math.round(client.ws.ping)}`;
 
   if (ping <= 50) {
-    pingend = ("**DIVIN**")
+    pinginfo = ("**DIVIN**")
   } else if (ping <= 50 && ping < 100) {
-    pingend = ("**Excellent**");
+    pinginfo = ("**Excellent**");
   } else if (ping >= 100 && ping < 200) {
-    pingend = ("**Très bon**");
+    pinginfo = ("**Très bon**");
   }	else if (ping >= 200 && ping < 300) {
-    pingend = ("**Bon**");
+    pinginfo = ("**Bon**");
   }	else if (ping >= 300 && ping < 400) {
-    pingend = ("**Correct**");
+    pinginfo = ("**Correct**");
   } else if (ping >= 400 && ping < 500) {
-    pingend = ("**Élevé**");
+    pinginfo = ("**Élevé**");
   }	else if (ping >= 500 && ping < 1000) {
-    pingend = ("**Très élevé**");
+    pinginfo = ("**Très élevé**");
   } else if (ping >= 1000 && ping < 5000) {
-    pingend = ("**Catastrophique**");
+    pinginfo = ("**Catastrophique**");
   } else if (ping >= 5000 && ping < 10000) {
-    pingend = ("**Extreme**");
+    pinginfo = ("**Extreme**");
   } else if (ping >= 10000) {
-    pingend = ("**Je démissionne...**");
+    pinginfo = ("**Je démissionne...**");
   }
 
 
 
   const m = await message.channel.send("Test ping en cours...");
-  m.edit(`Pong! :ping_pong: La latence du bot est de **${m.createdTimestamp - message.createdTimestamp}** ms. Latence de l'API de **${ping}** ms (État: ${pingend} )`);
+  m.edit(`Pong! :ping_pong: La latence du bot est de **${m.createdTimestamp - message.createdTimestamp}** ms. Latence de l'API de **${ping}** ms (État: ${pinginfo} )`);
 
 }

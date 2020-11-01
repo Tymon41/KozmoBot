@@ -13,11 +13,13 @@ module.exports = async (client, message) => {
   const auteur = message.author;
   const msg = message.content;
 
-  if (msg.toLowerCase().includes("bonjour") || msg.toLowerCase().includes("hello") || msg.toLowerCase().includes("salut") || msg.toLowerCase().includes("coucou") || msg.toLowerCase().includes("hey")){
+  if (msg.toLowerCase().includes("bonjour") || msg.toLowerCase().includes("hello") || msg.toLowerCase().includes("salut") || msg.toLowerCase().includes("coucou") || msg.toLowerCase().includes("hey"))
+	{
     message.react('👋');
   }
 
-  if (msg.toLowerCase().includes("bienvenue") || msg.toLowerCase().includes("welcome")){
+  if (msg.toLowerCase().includes("bienvenue") || msg.toLowerCase().includes("welcome"))
+	{
     message.react('🤗');
   }
 
@@ -35,16 +37,17 @@ module.exports = async (client, message) => {
 
     message.react("⚠️");
 
-    const insultEmbed = new Discord.MessageEmbed()
-    .setTitle("Mot interdit utilisé")
-    .setDescription("Quelqu'un a posté un message contenant une potentielle insulte ou un mot interdit")
-    .setColor("ff5d5d")
-    .addField("Pseudo:", message.author)
-    .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
-    .setFooter(`Si il s'agit d'une erreur, aucune action n'est requise | Kozmobot - ${client.config.version}`)
-    .setTimestamp();
+		const insultEmbed = new Discord.MessageEmbed()
+		.setTitle("Mot interdit utilisé")
+		.setDescription("Quelqu'un a posté un message contenant une potentielle insulte ou un mot interdit")
+		.setColor("ff5d5d")
+		.addField("Pseudo:", message.author)
+		.addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
+		.setFooter(`Si il s'agit d'une erreur, aucune action n'est requise | Kozmobot - ${client.config.version}`)
+		.setTimestamp();
 
-    client.channels.cache.get(`608277308700229653`).send(`@here ${insultEmbed}`);//log le message										//Mettre un message d'avertissement
+    client.channels.cache.get(`608277308700229653`).send(`@here`);//log le message
+		client.channels.cache.get(`608277308700229653`).send(insultEmbed);
 
 		};    //fin Anti-insultes
 
@@ -76,7 +79,8 @@ module.exports = async (client, message) => {
           .addField(`message:`, `[Cliquez pour acceder au message](${message.url})`)
           .setFooter(`Si le lien est sans risque, aucune action n'est requise | Kozmobot - ${client.config.version}`)
           .setTimestamp();
-          client.channels.cache.get(`608277308700229653`).send(`@here ${pubEmbed}`);//log le message
+          client.channels.cache.get(`608277308700229653`).send(`@here`);//log le message
+					client.channels.cache.get(`608277308700229653`).send(pubEmbed);
 				}
 			}	//Fin anti lien
 		};
@@ -85,7 +89,7 @@ module.exports = async (client, message) => {
   if (message.mentions.has(client.user))
   { //Si personne mentionnée
     if(message.content.includes("@everyone") || message.content.includes("@here")) {return}
-		var facts = ["it's a small step for man but a giant leap for mankind", "Hey salut, ca va ?", "Creeper ?", "Coucou", "The cake is a lie", "Kozmos, what else ?", "La terre est plate", ":musical_note:Kozmos sait faire un bon café, Kozmos sait faire un bon café:musical_note:", "https://cdn.discordapp.com/attachments/535174980363878431/613062258582355971/NOTRE_PROJET.gif", "Pain de mie, les croutes c'est fini !", "commence par me parler poliment", "Oui", "sors avec moi <3", "||:ok_hand: Gotcha !||", "OMG STOP PING PLS", "Hey comment vas tu ?", "Veux tu sortir avec moi ?", "Alors déjà, non", "Kestadit ?", "Et alors", "Je t'aime", "Moi aussi", "Oui en effet", "alèd", "Comment ça ?", "Non pas du tout", "Je t'ai déjà dit que j'étais un bot ?", "Salut !", "Au revoir", "Demain peut être", "Je te quitte", "Nous ~~ne~~ sommes ~~pas~~ platistes", "https://tenor.com/view/flick-esfand-esfandtv-ricardo-milos-ricardo-flick-gif-13730968", "la Terre est plate et ronde et non sphérique", "parfois je me demande pourquoi je suis là", ":musical_note:Et je chante en ASMR:musical_note:", "Pourquoi tant de ~~haine~~ ping ?", "SPAAAAAAAAAAAAAAACE", "Creeper, Aw man"]; //Variable facts
+		var facts = ["Hey salut, ca va ?", "Coucou", "La terre est plate", "https://cdn.discordapp.com/attachments/535174980363878431/613062258582355971/NOTRE_PROJET.gif", "commence par me parler poliment", "Oui", "sors avec moi <3", "||:ok_hand: Gotcha !||", "OMG STOP PING PLS", "Hey comment vas tu ?", "Veux tu sortir avec moi ?", "Alors déjà, non", "Kestadit ?", "Et alors", "Je t'aime", "Moi aussi", "Oui en effet", "alèd", "Comment ça ?", "Non pas du tout", "Je t'ai déjà dit que j'étais un bot ?", "Salut !", "Au revoir", "Demain peut être", "Je te quitte", "Nous ~~ne~~ sommes ~~pas~~ platistes", "https://tenor.com/view/flick-esfand-esfandtv-ricardo-milos-ricardo-flick-gif-13730968", "la Terre est plate et ronde et non sphérique", "parfois je me demande pourquoi je suis là", ":musical_note:Et je chante en ASMR:musical_note:"]; //Variable facts
 		var fact = Math.floor(Math.random() * facts.length); //fact random
 		message.reply(facts[fact]); //poster la fact
 	};

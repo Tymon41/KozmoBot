@@ -1,3 +1,5 @@
+const Discord = module.require("discord.js");
+
 exports.run = (client, message, args) => {
 
   const socialEmbed = new Discord.MessageEmbed()

@@ -4,6 +4,7 @@ const chalk = module.require('chalk');
 
 exports.run = (client, message, args) => {
 
+	return message.reply("C PT")
 
   var embedColor = '#ff0011' // Couleur des embeds!
 
