@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
     return message.reply("Veuillez mentionner un utilisateur valide !");//Mec, faut mentionner un membre...
   }
 
-    if(member.roles.has(`506232828577710090`))
+    if(message.member.permissions.has('KICK_MEMBERS'))
     return message.reply('impossible de mute un membre du staff >.<')
 
   let muterole = message.guild.roles.cache.get(`452851946731077644`);					//Récup le rôle mute

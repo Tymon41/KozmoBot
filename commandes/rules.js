@@ -71,7 +71,7 @@ exports.run = async (client, message, args) => {
   .setThumbnail("attachment://rules3.png")
   .addField(":arrow_right:Votre message contient des insultes", "Avertissement")
   .addField(":arrow_right:Vous spammez", "Message(s) supprimé(s) et ban")
-  .addField(":arrow_right:Vous envoyez des liens vers des sites douteux", "Vérification puis sanction adaptée")
+  .addField(":arrow_right:Vous envoyez des liens vers des sites douteux", "Message supprimé et ban")
   .addField(":arrow_right:Vous abusez des emojis", "Avertissement")
   .addField(":arrow_right:Vous abusez des mentions", "Message(s) supprimé(s) et ban")
   .addField(":arrow_right:Vous postez des annonces pour un serveur (sauf dans le salon #🆙pub )", "Message supprimé et avertissement")

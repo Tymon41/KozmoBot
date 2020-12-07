@@ -55,8 +55,8 @@ exports.run = (client, message, args) => {
 	.setTimestamp();
 
 
-	member.ban(reason)
-	.catch(error => message.reply(`Désolé ${message.author}, une erreur est survenue: ${error}`));
+	member.ban({reason: reason})
+	.catch(error => message.reply(`Désolé, une erreur est survenue: ${error}`));
 	message.channel.send(bannedEmbed);
 	var gifler = Math.floor(Math.random() * gifs.length);
 	message.channel.send(gifs[gifler]);
